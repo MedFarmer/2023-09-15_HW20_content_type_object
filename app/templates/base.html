@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <ul style="list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            <a href="{% url 'home' %}">
+                <li>Home</li>
+            </a>
+            <a href="{% url 'articlecreate' %}">
+                <li>Add article</li>
+            </a>
+            <a href="{% url 'videocreate' %}">
+                <li>Add video</li>
+            </a>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

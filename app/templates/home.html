@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+{% block content %} 
+    <h3>Articles</h3>
+    <ul>
+        {% for article in articles %}
+            <li> 
+                <p> <u> {{ article.title }} </u> : {{ article.text }} </p>                
+                <a href="{% url 'commentcreate' 'article' article.pk %}"> add comment </a>
+                <ul>
+                    {% for comment in article.comments.all %}
+                    <li>
+                        <p> {{ comment.text }} </p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <h3>Videos</h3>
+    <ul>
+        {% for video in videos %}
+            <li>
+                <p> <u>{{ video.title }} </u>: {{ video.video }} </p>                
+                <a href="{% url 'commentcreate' 'video' video.pk %}"> add comment </a>
+                <ul>
+                    {% for comment in video.comments.all %}
+                    <li>                        
+                        <p> {{ comment.text }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>     
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
